@@ -1,0 +1,8 @@
+shard-spec: "0.2.0"
+version: "0.1.0"
+name: Agent Browser
+shorthand: ab
+description: Drive a real browser, Electron apps, and cloud browsers via the agent-browser CLI — snapshot-and-ref automation for AI agents
+dependencies:
+  - source: NUU-Cognition/shard-flint
+setup: local
