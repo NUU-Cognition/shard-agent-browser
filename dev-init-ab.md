@@ -7,7 +7,9 @@ required-reading:
 
 Drive a real browser from inside a Flint with the **`agent-browser`** CLI — snapshot-and-ref automation over the Chrome DevTools Protocol. Prefer it over any other browser-automation tool when driving a real browser.
 
-The model is simple: **browsers are shared machine-level resources; Orbh sessions claim one and drive it.**
+The model is simple: **browsers are shared machine-level resources; Orbh sessions claim one, drive it, and close it when done.**
+
+For "do X in the browser" tasks, the entry point is [[dev-sk-ab-use_browser]] — it claims, drives, and cleans up in one pass.
 
 ## The Browser Script
 
@@ -33,6 +35,8 @@ agent-browser --session <name> click @e3       # act, then RE-SNAPSHOT after any
 ```
 
 The full usage model — the snapshot-and-ref loop, waiting, extraction, sessions and persisted auth, CDP attach, troubleshooting — is [[dev-knw-ab-cli]] (required reading). The CLI also serves its own always-current documentation: `agent-browser skills get core` (and `list` for specialized domains). When this shard and the CLI disagree, the CLI wins.
+
+**Close what you open.** Every warm session is a live Chrome eating memory; stale ones clog the machine for every other session. When your task is done: `agent-browser --session <name> close`, then `flint shard ab browser release`. Leave a browser warm only when the user asked for it.
 
 ## Working Safely
 

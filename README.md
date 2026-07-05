@@ -24,6 +24,7 @@ Assignments live on the Orbh session interface (`browser` key) — no state file
 | `dev-init-ab.md` | Entry point — the model, the browser script, safety |
 | `dev-setup-ab.md` | Per-machine setup: install the CLI + runtime |
 | `knowledge/dev-knw-ab-cli.md` | The durable usage model — snapshot-and-ref loop, waits, sessions, CDP attach, troubleshooting |
+| `skills/dev-sk-ab-use_browser.md` | Entry point for "do X in the browser" — claim, drive, close, release |
 | `scripts/dev-browser.js` | `flint shard ab browser <list\|assign\|release>` |
 
 ## Design

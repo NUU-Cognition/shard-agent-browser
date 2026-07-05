@@ -69,6 +69,8 @@ AGENT_BROWSER_SESSION=flint                                   # default --sessio
 
 **The daemon caches its launch options** (headed/headless, profile). Re-running `open` with different options silently keeps the old ones — close the session first to change them.
 
+**Close sessions when you're done with them.** Each warm daemon is a live Chrome that persists until explicitly closed — stale ones accumulate and clog the machine. `close` your session and `flint shard ab browser release` your claim at the end of a task; keep-warm is opt-in, not the default.
+
 **A live daemon ≠ persisted auth.** For logins that survive a close/restart:
 
 | Mechanism | Flag | Notes |

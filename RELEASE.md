@@ -1,5 +1,6 @@
 # 0.2.0
 
+- Restored `sk-ab-use_browser` as the task entry point, rebuilt on the claim model: claim → drive → **close + release** (session hygiene is now explicit — warm daemons are opt-in, closed by default)
 - Simplified to the browsers-as-shared-resources model: one `browser` script (`list` / `assign` / `release`) with assignments stored on the Orbh session interface (`browser` key); no Local State config
 - Removed the `saved`/`throwaway`/`real` mode system and the clone-and-attach machinery (`open`, `clone`, `login`, `profiles`, `stop`, `dashboard` scripts); manual CDP-attach recipe survives in knowledge
 - Merged all knowledge into a single `knw-ab-cli.md`; removed both skills, both workflows, and the dogfood template (recoverable from git history)
