@@ -23,9 +23,10 @@ Complete a task that requires a web browser. This is the entry point for "do X i
    flint shard ab browser list
    ```
    - If the caller named a browser, or your session already holds one, use that.
-   - Otherwise open a fresh session named after your Orbh session's short id (collision-free) and claim it:
+   - Otherwise open a fresh session named after your Orbh session's short id (collision-free), size it to 1080p, and claim it:
      ```bash
      agent-browser --session <short-id> open <url>
+     agent-browser --session <short-id> set viewport 1920 1080   # start at 1080p, not the small default
      flint shard ab browser assign <short-id>
      ```
    - Never drive a browser another session holds without coordinating with that session first.

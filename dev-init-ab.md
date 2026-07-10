@@ -9,7 +9,7 @@ Drive a real browser from inside a Flint with the **`agent-browser`** CLI — sn
 
 The model is simple: **browsers are shared machine-level resources; Orbh sessions claim one, drive it, and close it when done.**
 
-For "do X in the browser" tasks, the entry point is [[dev-sk-ab-use_browser]] — it claims, drives, and cleans up in one pass.
+For "do X in the browser" tasks, the entry point is [[dev-sk-ab-use_browser]] — it claims, drives, and cleans up in one pass. To drive an **interactive terminal program** (a TUI or long-running CLI) with real terminal-mode input, use [[dev-sk-ab-use_terminal]] — it runs the program in `tmux`, serves it as a browser `xterm.js` via `ttyd`, and drives that through the browser.
 
 ## The Browser Script
 

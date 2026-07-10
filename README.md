@@ -25,6 +25,7 @@ Assignments live on the Orbh session interface (`browser` key) — no state file
 | `dev-setup-ab.md` | Per-machine setup: install the CLI + runtime |
 | `knowledge/dev-knw-ab-cli.md` | The durable usage model — snapshot-and-ref loop, waits, sessions, CDP attach, troubleshooting |
 | `skills/dev-sk-ab-use_browser.md` | Entry point for "do X in the browser" — claim, drive, close, release |
+| `skills/dev-sk-ab-use_terminal.md` | Drive an interactive terminal program (TUI/CLI) as a browser `xterm.js` via `ttyd` + `tmux` — real terminal-mode input |
 | `scripts/dev-browser.js` | `flint shard ab browser <list\|assign\|release>` |
 
 ## Design
