@@ -1,8 +1,8 @@
 shard-spec: "0.2.0"
-version: "0.10.0"
+version: "0.11.0"
 name: Agent Browser
 shorthand: ab
-description: Drive a real browser via the agent-browser CLI — local, rented, or self-hosted persistent browsers claimed per Orbh session, snapshot-and-ref automation
+description: Drive a real browser or a desktop Electron app via the agent-browser CLI — local, rented, or self-hosted persistent browsers claimed per Orbh session, snapshot-and-ref automation
 dependencies:
   - source: NUU-Cognition/shard-flint
 setup: local

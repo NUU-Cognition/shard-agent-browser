@@ -11,7 +11,13 @@ Drive a real browser from inside a Flint with the **`agent-browser`** CLI — sn
 
 The model is simple: **browsers are shared machine-level resources; Orbh sessions claim one, drive it, and close it when done.**
 
-For "do X in the browser" tasks, the entry point is [[dev-sk-ab-use_browser]] — it claims, drives, and cleans up in one pass. To drive an **interactive terminal program** (a TUI or long-running CLI) with real terminal-mode input, use [[dev-sk-ab-use_terminal]] — it runs the program in `tmux`, serves it as a browser `xterm.js` via `ttyd`, and drives that through the browser.
+For "do X in the browser" tasks, the entry point is [[dev-sk-ab-use_browser]] — it claims, drives, and cleans up in one pass. To drive an **interactive terminal program** (a TUI or long-running CLI) with real terminal-mode input, use [[dev-sk-ab-use_terminal]] — it runs the program in `tmux`, serves it as a browser `xterm.js` via `ttyd`, and drives that through the browser. To drive a **desktop Electron app** (Obsidian, VS Code, Slack, Discord), use [[dev-sk-ab-use_electron]] — an Electron app is Chromium, so it serves the same DevTools protocol, but it needs its own launch, attach, and teardown discipline.
+
+| Entry point | Drives |
+|-------------|--------|
+| [[dev-sk-ab-use_browser]] | A web page in a browser |
+| [[dev-sk-ab-use_terminal]] | A terminal program, through `xterm.js` in a browser |
+| [[dev-sk-ab-use_electron]] | A desktop Electron app, through its own DevTools port |
 
 ## The Browser Script
 
