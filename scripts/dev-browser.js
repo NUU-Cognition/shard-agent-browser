@@ -15,9 +15,14 @@ const http = require('http');
 
 const CDP_PORTS = [9222, 9223, 9224, 9225, 9226, 9227]; // conventional local CDP range
 
+// `out` is stdout ONLY — anything that writes to stderr (node warnings, NO_COLOR
+// notices, deprecation notices) would otherwise be concatenated into a parsed value
+// and silently break every comparison against it. `msg` is for human-facing errors.
 function run(cmd, args) {
   const r = spawnSync(cmd, args, { encoding: 'utf8' });
-  return { ok: r.status === 0, out: ((r.stdout || '') + (r.stderr || '')).trim() };
+  const out = (r.stdout || '').trim();
+  const err = (r.stderr || '').trim();
+  return { ok: r.status === 0, out, err, msg: [out, err].filter(Boolean).join('\n') };
 }
 function warmSessions() {
   return run('agent-browser', ['session', 'list']).out
@@ -90,7 +95,7 @@ async function assign(browser, target) {
     }
   }
   const r = run('flint', ['orbh', 'session', target, 'set', 'browser', browser]);
-  if (!r.ok) { console.error(`failed to set browser key: ${r.out}`); process.exit(1); }
+  if (!r.ok) { console.error(`failed to set browser key: ${r.msg}`); process.exit(1); }
   console.log(`✓ assigned "${browser}" to session ${target}`);
   console.log(`  drive it with:  agent-browser ${m ? `--cdp ${m[1]}` : `--session ${browser}`} <command>`);
 }
@@ -99,7 +104,7 @@ function release(target) {
   if (!target) { console.error('No target session — pass --session <orbh-id> or run inside an Orbh session.'); process.exit(1); }
   const had = claimOf(target);
   const r = run('flint', ['orbh', 'session', target, 'set', 'browser', '']);
-  if (!r.ok) { console.error(`failed to clear browser key: ${r.out}`); process.exit(1); }
+  if (!r.ok) { console.error(`failed to clear browser key: ${r.msg}`); process.exit(1); }
   console.log(had ? `✓ released "${had}" from session ${target}` : `session ${target} held no browser — nothing to release`);
 }
 
