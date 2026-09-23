@@ -1,3 +1,11 @@
+# 0.11.0
+
+- New skill `sk-ab-use_electron` — a third entry point beside `use_browser` and `use_terminal`, for driving a desktop Electron app over its own Chrome DevTools port
+- The skill carries a five-rung escalation ladder (the app's JS API, snapshot refs, keyboard, screenshot, `require("electron").remote`), because the accessibility tree alone does not carry apps like Obsidian
+- Named Obsidian recipe: a second process on a throwaway `--user-data-dir` with `obsidian.json` seeded before launch, so the human's Obsidian is never quit and the native vault dialog is never driven
+- Records four attach traps verified on-machine: `--session … connect` is not sticky (use `--cdp` every command), `--auto-connect` does not find Electron apps, a stale daemon answers `about:blank` with no error, and `--cdp` leaves the implicit `default` session bound to a dead port at teardown
+- Warns that Obsidian applies no vault lock — two instances open one vault at once, racing writes and double-registering the NUU plugin
+
 # 0.2.0
 
 - Restored `sk-ab-use_browser` as the task entry point, rebuilt on the claim model: claim → drive → **close + release** (session hygiene is now explicit — warm daemons are opt-in, closed by default)
