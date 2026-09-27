@@ -1,6 +1,6 @@
-shard-spec: "0.3.0"
+shard-spec: "0.4.0"
+shard: "@nuucognition/agent-browser"
 id: 39321b11-0bc0-40f8-ac41-cea78228a7ff
-org: nuucognition
 source:
   id: d76a5eb2-5b82-450b-8423-b9f16f001f92
 version: "0.11.2"
