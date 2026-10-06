@@ -1,3 +1,7 @@
+# 0.11.4
+
+- The dependency on the Flint shard accepts any version (`"@nuucognition/flint": ""`), so the shard works with Flint 0.3.x and with Flint 0.4.0 (NUU Flint Task 1129).
+
 # 0.11.0
 
 - New skill `sk-ab-use_electron` — a third entry point beside `use_browser` and `use_terminal`, for driving a desktop Electron app over its own Chrome DevTools port
