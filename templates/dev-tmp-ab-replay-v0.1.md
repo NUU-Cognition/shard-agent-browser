@@ -1,5 +1,7 @@
 ---
 description: "Replay browser identity — a login saved in a state file and rehydrated into fresh ephemeral browsers"
+orb:
+  - "@v1/nuucognition/session/17a6a729-0275-4ec6-ae83-70b1340527ff#flint/nuu-orbh"
 ---
 
 # Filename: Mesh/Types/Browsers/(Browser) NNN [Name].md
@@ -44,7 +46,8 @@ status: [active (usable now)|untested (recorded but never driven end-to-end)|ret
 provider: "[[wikilink to the (Browser) provider artifact]]"
 state-file: [path to the saved state file, e.g. Media/Browsers/<stable-id>.state.json]
 proxy-country: [egress setting used at capture — MUST match on replay. e.g. none, us]
-orbh-sessions:
+orb:
+  - "[the output of flint address me]"
 template: "[[tmp-ab-replay-v0.1]]"
 authors:
   - "[[@Person Name]]"

@@ -1,5 +1,7 @@
 ---
 description: "Persistent browser identity — a standing self-hosted browser whose login lives in a real profile on disk"
+orb:
+  - "@v1/nuucognition/session/17a6a729-0275-4ec6-ae83-70b1340527ff#flint/nuu-orbh"
 ---
 
 # Filename: Mesh/Types/Browsers/(Browser) NNN [Name].md
@@ -45,7 +47,8 @@ provider: "[[wikilink to the (Browser) provider artifact for the host]]"
 cdp-url: [http://<address>:<port> — MUST be an IP, not a hostname. See Limits.]
 view-url: [the human viewer URL served by the host]
 host: [which machine this runs on, e.g. sparrow]
-orbh-sessions:
+orb:
+  - "[the output of flint address me]"
 template: "[[tmp-ab-persistent-v0.1]]"
 authors:
   - "[[@Person Name]]"

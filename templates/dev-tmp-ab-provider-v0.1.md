@@ -1,5 +1,7 @@
 ---
 description: "Browser provider — an account, host, or endpoint that browsers are obtained FROM"
+orb:
+  - "@v1/nuucognition/session/17a6a729-0275-4ec6-ae83-70b1340527ff#flint/nuu-orbh"
 ---
 
 # Filename: Mesh/Types/Browsers/(Browser) NNN [Name].md
@@ -37,7 +39,8 @@ tags:
 kind: provider
 status: [active (usable now)|untested (recorded but never driven end-to-end)|retired (superseded or revoked)]
 provider: [vendor or host slug, e.g. browser-use, nbrowser]
-orbh-sessions:
+orb:
+  - "[the output of flint address me]"
 template: "[[tmp-ab-provider-v0.1]]"
 authors:
   - "[[@Person Name]]"
