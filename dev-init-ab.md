@@ -19,6 +19,8 @@ For "do X in the browser" tasks, the entry point is [[dev-sk-ab-use_browser]] â€
 | [[dev-sk-ab-use_terminal]] | A terminal program, through `xterm.js` in a browser |
 | [[dev-sk-ab-use_electron]] | A desktop Electron app, through its own DevTools port |
 
+For the **native UI** of a desktop app (the menu bar, file dialogs, sheets, notifications), and for a native app that is not Chromium, use the Agent Desktop shard (`ad`, `flint shard start ad`). It reads the accessibility tree of the OS. The two shards work together on an Electron app: agent-desktop starts the app with a DevTools port (`agent-desktop launch "<App>" --cdp`) and keeps the native UI, and agent-browser drives the web content.
+
 ## The Browser Script
 
 One script covers listing and assignment (assignments live on the Orbh session interface as the `browser` key â€” visible in `flint orbh inspect`, gone when the session ends):
